@@ -1,0 +1,13 @@
+{
+  "name": "nightmare",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "command-line-args": "^4.0.7",
+    "nightmare": "^2.10.0",
+    "redis": "^2.8.0",
+    "xvfb": "^0.2.3"
+  }
+}
