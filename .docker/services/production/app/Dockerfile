@@ -63,9 +63,9 @@ ENV DISPLAY :9.0
 
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
-WORKDIR /app
-
 EXPOSE 80 443 8080
+
+WORKDIR /app
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/bin/bash"]
@@ -80,10 +80,5 @@ RUN cd /app/src/node-apps/websocket-proxy && npm install
 RUN cd /app/src/node-apps/msgs-proxy && npm install
 RUN cd /app/src/node-apps/msgs-proxy-lite && npm install
 RUN cd /app/src/node-apps/nightmarejs && npm install
-
-# Build number
-RUN cd /app && echo "define('BUILD_NUMBER', '`git rev-parse HEAD`');" >> /app/src/common/config/constants.php
-RUN cd /app && echo "define('YII_ACCEPTANCE_TEST', false);" >> /app/src/common/config/constants.php
-RUN cd /app && echo "define('YII_BETA_TEST', false);" >> /app/src/common/config/constants.php
 
 VOLUME /app/logs
