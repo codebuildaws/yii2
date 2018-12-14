@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 COPY ./.ssh /root/.ssh
-RUN chown $USER /root/.ssh/config
+RUN chown -R root /root/.ssh/config
 RUN chmod 600 /root/.ssh/config
 COPY ./01_nodoc /etc/dpkg/dpkg.cfg.d/01_nodoc
 
