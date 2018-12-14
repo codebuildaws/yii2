@@ -6,6 +6,8 @@ COPY ./01_nodoc /etc/dpkg/dpkg.cfg.d/01_nodoc
 
 RUN locale-gen en_US.UTF-8 && chown -R root:root /root/.ssh && chmod 600 /root/.ssh/id_rsa && chmod 644 /root/.ssh/id_rsa.pub
 
+RUN mkdir /root/.composer && echo -e "{\n    \"github-oauth\": {\n        \"github.com\": \"$GITHUB_OAUTH\"\n    }\n}" > /root/.composer/auth.json
+
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV TERM xterm
@@ -37,7 +39,7 @@ RUN apt-get install -y php7.1 php7.1-bcmath php7.1-bz2 php7.1-cli php7.1-common 
 RUN sed -i 's/--daemonize /--daemonize -R /' /etc/init.d/php7.1-fpm
 
 # Install composer & plugins
-COPY ./.composer /root/.composer
+#COPY ./.composer /root/.composer
 RUN cd /bin; curl -sS https://getcomposer.org/installer | php && mv /bin/composer.phar /bin/composer
 RUN composer global require "fxp/composer-asset-plugin:1.4.*"
 
