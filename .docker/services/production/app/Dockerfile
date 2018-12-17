@@ -65,7 +65,7 @@ COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
 EXPOSE 80 443 8080
 
-WORKDIR /app
+WORKDIR /
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/bin/bash"]
@@ -81,4 +81,4 @@ RUN cd /app/src/node-apps/msgs-proxy && npm install
 RUN cd /app/src/node-apps/msgs-proxy-lite && npm install
 RUN cd /app/src/node-apps/nightmarejs && npm install
 
-VOLUME /app/logs
+#VOLUME /app/logs
