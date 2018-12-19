@@ -70,7 +70,7 @@ WORKDIR /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/bin/bash"]
 
-# Install application
+## Install application
 RUN mkdir /app; mkdir /logs
 RUN git clone git@github.com:codebuildaws/yii2.git /app && cd /app && git checkout master
 
