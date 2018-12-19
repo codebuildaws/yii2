@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y ca-certificates wget curl git software-
 
 ENV EDITOR /usr/bin/mcedit
 
-## Install nodejs and npm
+# Install nodejs and npm
 RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && apt-get install -y nodejs
 
 # Install tools
